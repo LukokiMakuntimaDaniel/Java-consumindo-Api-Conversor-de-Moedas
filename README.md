@@ -1,8 +1,6 @@
-<h1 align="center">Conversor de Moedas</h1>
+<h1 align="center">Conversor de Moedas desafio proposto pela ALURA</h1>
 
-<p align="center">
-  <img src="https://img.shields.io/github/license/seu-usuario/seu-repositorio" alt="License">
-</p>
+
 
 <p align="center">
   <a href="#descrição">Descrição</a> •
