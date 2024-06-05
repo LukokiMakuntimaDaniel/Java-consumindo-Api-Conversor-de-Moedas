@@ -1,5 +1,7 @@
 package LukokiConversao.ao;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -9,8 +11,8 @@ import java.net.http.HttpResponse;
 public class Consumo {
     private final HttpClient client;
 
-    public Consumo(HttpClient client) {
-        this.client = client;
+    public Consumo() {
+        this.client = HttpClient.newHttpClient();
     }
 
     public String pegarDadosDaApi(String link){
@@ -29,7 +31,12 @@ public class Consumo {
         }
     }
 
-    public String procurarCorrespondencia(String response){
+    public PegarDaApi converterJsonParaClass(String response){
+        Gson gson = new Gson();
+        return  gson.fromJson(response,PegarDaApi.class);
+    }
 
+    public String procurarCorrespondencia(String response){
+return null;
     }
 }

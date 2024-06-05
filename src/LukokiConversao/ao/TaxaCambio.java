@@ -12,10 +12,27 @@ public class TaxaCambio {
     private String time_next_update_unix;
     private String time_next_update_utc;
     private String  base_code;
-    private final Map<String, Double> conversion_rates = new HashMap<>();
+    private  Map<String, Double> conversion_rates;
 
     public String getResult() {
         return result;
+    }
+
+    public TaxaCambio(PegarDaApi pegarDaApi) {
+        this.result = pegarDaApi.result();
+        this.conversion_rates =pegarDaApi.conversion_rates();
+        this.base_code =pegarDaApi.base_code();
+        this.time_next_update_utc = pegarDaApi.time_next_update_utc();
+        this.time_next_update_unix = pegarDaApi.time_next_update_unix();
+        this.time_last_update_utc = pegarDaApi.time_last_update_utc();
+        this.time_last_update_unix = pegarDaApi.time_last_update_unix();
+        this.terms_of_use = pegarDaApi.terms_of_use();
+        this.documentation = pegarDaApi.documentation();
+        this.conversion_rates = pegarDaApi.conversion_rates();
+    }
+
+    public void setConversion_rates(Map<String, Double> conversion_rates) {
+        this.conversion_rates = conversion_rates;
     }
 
     public void setResult(String result) {
@@ -80,5 +97,20 @@ public class TaxaCambio {
 
     public Map<String, Double> getConversion_rates() {
         return conversion_rates;
+    }
+
+    @Override
+    public String toString() {
+        return "TaxaCambio{" +
+                "result='" + result + '\'' +
+                ", documentation='" + documentation + '\'' +
+                ", terms_of_use='" + terms_of_use + '\'' +
+                ", time_last_update_unix='" + time_last_update_unix + '\'' +
+                ", time_last_update_utc='" + time_last_update_utc + '\'' +
+                ", time_next_update_unix='" + time_next_update_unix + '\'' +
+                ", time_next_update_utc='" + time_next_update_utc + '\'' +
+                ", base_code='" + base_code + '\'' +
+                ", conversion_rates=" + conversion_rates +
+                '}';
     }
 }
