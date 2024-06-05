@@ -35,11 +35,43 @@ public class Menu {
                     }
                     break;
                 case 2:
+                    System.out.println("AOA para Dolar");
+                    System.out.print("Digite o valor a converter: ");
+                    valor = leitura.nextDouble();
+                    link = linkPadrao+"AOA";
+                    response = consumo.pegarDadosDaApi(link);
+                    pegarDaApi = consumo.converterJsonParaClass(response);
+                    taxaCambio= new TaxaCambio(pegarDaApi);
+                    valorConveridoParaUmaUnidade = pegarValorDaConversao("USD",taxaCambio);
+                    if(valorConveridoParaUmaUnidade!=null){
+                        System.out.println("O VALOR "+valor+" convertido DE AOA para Dolar É "+(valor*valorConveridoParaUmaUnidade));
+                    }
                     break;
                 case 3:
+                    System.out.println("Dolar para Real Brasileiro");
+                    System.out.print("Digite o valor a converter: ");
+                    valor = leitura.nextDouble();
+                    link = linkPadrao+"USD";
+                    response = consumo.pegarDadosDaApi(link);
+                    pegarDaApi = consumo.converterJsonParaClass(response);
+                    taxaCambio= new TaxaCambio(pegarDaApi);
+                    valorConveridoParaUmaUnidade = pegarValorDaConversao("BRL",taxaCambio);
+                    if(valorConveridoParaUmaUnidade!=null){
+                        System.out.println("O VALOR "+valor+" convertido DE Dolar para Real Brasileiro é "+(valor*valorConveridoParaUmaUnidade));
+                    }
                     break;
                 case 4:
-
+                    System.out.println("Real Para Dolar");
+                    System.out.print("Digite o valor a converter: ");
+                    valor = leitura.nextDouble();
+                    link = linkPadrao+"BRL";
+                    response = consumo.pegarDadosDaApi(link);
+                    pegarDaApi = consumo.converterJsonParaClass(response);
+                    taxaCambio= new TaxaCambio(pegarDaApi);
+                    valorConveridoParaUmaUnidade = pegarValorDaConversao("USD",taxaCambio);
+                    if(valorConveridoParaUmaUnidade!=null){
+                        System.out.println("O VALOR "+valor+" convertido DE Real Para Dolar é "+(valor*valorConveridoParaUmaUnidade));
+                    }
                     break;
                 case 0:
                     sair= false;
